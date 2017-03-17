@@ -34,7 +34,7 @@ namespace Jeti_v0{
             //var c = (from t in activecontracts
             //         where t.ActivityDate == DateTime.Today
             //         select t);
-            var c = GetActiveContracts();
+            var c = db.GetActiveContracts();
 
             Parallel.ForEach(c, (t) =>
                 {
@@ -44,26 +44,52 @@ namespace Jeti_v0{
                         DataTable dt = new DataTable();                          
                         while (1 > 0)
                         {
-                            Console.WriteLine("Task Tester! ... " + t.IBFuturesLocalSymbol);
+                            //Console.WriteLine("Task Tester! ... " + t.IBFuturesLocalSymbol);
+                            // //get some data and print to console (to be removed once more logic built)
+                            //dt = GetPricesFromDB(t,20);
+                            //foreach (DataRow r in dt.Rows)
+                            //{
+                            //    foreach (var i in r.ItemArray)
+                            //    {
+                            //        Console.WriteLine(i);
 
-                            dt = GetPriceData2(t);
-                            foreach (DataRow r in dt.Rows)
+                            //    }
+                            //}
+
+                            // -------------------------------------------------------------------------------------
+                            // calculate RSI
+                            float neg = new float();
+                            float pos = new float();
+                            float num = new float();
+                            float p_c = new float();
+                            float n_c = new float();
+                            dt = db.GetPricesFromDB(t, 10);
+
+                            // get price changes from prices
+                            if (dt.Rows.Count > 0)
                             {
-                                foreach (var i in r.ItemArray)
-                                {
-                                    Console.WriteLine(i);
+                                dt = db.PriceChange(dt,0,0);
 
-                                }
+                                // RSI
+                                //foreach (DataRow r in dt.Rows)
+                                //{
+                                //    num = (float)r["p_change"];
+                                //    if (num > 0)
+                                //    {
+                                //        neg = neg + num;
+                                //        n_c++;
+                                //    }
+                                //    else
+                                //    {
+                                //        pos = pos + num;
+                                //        p_c++;
+                                //    };
+                                //}
                             }
 
-                            //var d = GetPriceData(t);
-                            //foreach (var k in d)
-                            //{
-                            //    Console.WriteLine(k);
-                            //}                           
-
+                            // -------------------------------------------------------------------------------------
                             Console.WriteLine(dt);
-                            Thread.Sleep(10000);
+                            Thread.Sleep(1000);
                         }
                     });
                 }
@@ -84,81 +110,15 @@ namespace Jeti_v0{
             return 0;
         }
 
-        static public dynamic GetPriceData(ActiveContract t)
-        {
-        Console.WriteLine("--Getting Data For: " + t.IBFuturesLocalSymbol);
-        using (var jetiDB = new JETIEntities())
-        {
-            return (from PriceCapture p in jetiDB.PriceCaptures
-                    where p.Ticker == t.IBFuturesLocalSymbol
-                      //&  p.IBTimestamp == DateTime.Today
-                    select new {p.IBTimestamp, p.Ticker, p.Price }).ToList();
-        }
-        }
 
-        static public DataTable GetPriceData2(ActiveContract t)
-        {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("time", typeof(DateTime));
-            dt.Columns.Add("ticker", typeof(string));
-            dt.Columns.Add("price", typeof(double));
 
-            using (var jetiDB = new JETIEntities())
-            {
-                var q = from PriceCapture p in jetiDB.PriceCaptures
-                        where p.Ticker == t.IBFuturesLocalSymbol
-                        //&  p.IBTimestamp == DateTime.Today
-                        select new { p.IBTimestamp, p.Ticker, p.Price };
-                
-                foreach (var k in q)
-                {
-                    dt.Rows.Add(k.IBTimestamp, k.Ticker, k.Price);
-                    //Console.WriteLine("");
-                }
-            }
-            return dt;
-        }
 
-        static public List<ActiveContract> GetActiveContracts()
-        {
-            using (var jetiDB = new JETIEntities())
-            {
-                return (from ActiveContract in jetiDB.ActiveContracts
-                        where ActiveContract.ActivityDate == DateTime.Today
-                        select ActiveContract).ToList();
-            }
-        }
-        
-        private static void Studies(string t)
-        {
-            // get data from p for t
 
-            // calc 5period EWMA
-
-            // calc 10period EWMA
-
-            // calc 9period RSI
-
-            // write values to a studies DataTable
-        }
-
-        private static void Scores(string t)
-        {
-            // calculate the score values of each contract
-        }
-        private static void Weights(string t)
-        {
-            // decide ideal portfolio weights (alpha forecast + t-cost estimate)
-        }
-        private static void Orders(string t)
-        {
-            // generate and execute API orders
-        }
-        private static void Reports(string t)
-        {
-            // persist data on trade price, pnl, positions, etc to database (and in future to reporting layer)
-        }
-
-        
     }
+
+
+
+
+
+
 }

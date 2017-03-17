@@ -8,4 +8,19 @@ namespace Jeti_v0
     class Studies
     {
     }
+
+    class Scores
+    {
+    }
+    class Weights
+    {
+    }
+    class Orders
+    {
+    }
+    class Reports
+    {
+    }
+
+
 }
