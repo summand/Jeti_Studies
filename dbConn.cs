@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
+using IBApi;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Collections;
+using System.Net;
+using System.Net.Sockets;
 
 namespace Jeti_v0
 {
-    class db
+    public class db
     {
         static public DataTable PriceChange(DataTable sourceDataTable, int periods, int frequencyInSeconds)
         {
@@ -71,7 +77,7 @@ namespace Jeti_v0
         }
         static public List<ActiveContract> GetActiveContracts()
         {
-            using (var jetiDB = new JETIEntities())
+            using (var jetiDB = new CF1())
             {
                 return (from ActiveContract in jetiDB.ActiveContracts
                         where ActiveContract.ActivityDate == DateTime.Today

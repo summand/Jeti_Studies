@@ -14,6 +14,7 @@ using System.Collections;
 using System.Collections.Generic;
 using IBApi;
 using System.Data;
+using System.Configuration;
 
 namespace Jeti_v0{
     public class program{

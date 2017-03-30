@@ -16,7 +16,7 @@ namespace Jeti_v0
     public partial class JETIEntities : DbContext
     {
         public JETIEntities()
-            : base("name=JETIEntities")
+            : base("JETIEntities")
         {
         }
     

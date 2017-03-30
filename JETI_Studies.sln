@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jeti_Studies", "Jeti_Studie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpAPI", "csharpclient\CSharpAPI.csproj", "{8EDE0744-96C2-40B0-A8DC-37DF79370203}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dbConnRef", "..\dbConnRef\dbConnRef.csproj", "{E9C93D7C-5BC1-4784-83C3-2F658FCC4969}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jeti_charts", "jeti_charts\jeti_charts.csproj", "{B641B4E9-8E4A-4809-9D2C-7960CB14B573}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +33,22 @@ Global
 		{8EDE0744-96C2-40B0-A8DC-37DF79370203}.Release|Any CPU.ActiveCfg = Release|x86
 		{8EDE0744-96C2-40B0-A8DC-37DF79370203}.Release|x86.ActiveCfg = Release|x86
 		{8EDE0744-96C2-40B0-A8DC-37DF79370203}.Release|x86.Build.0 = Release|x86
+		{E9C93D7C-5BC1-4784-83C3-2F658FCC4969}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9C93D7C-5BC1-4784-83C3-2F658FCC4969}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9C93D7C-5BC1-4784-83C3-2F658FCC4969}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E9C93D7C-5BC1-4784-83C3-2F658FCC4969}.Debug|x86.Build.0 = Debug|Any CPU
+		{E9C93D7C-5BC1-4784-83C3-2F658FCC4969}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9C93D7C-5BC1-4784-83C3-2F658FCC4969}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9C93D7C-5BC1-4784-83C3-2F658FCC4969}.Release|x86.ActiveCfg = Release|Any CPU
+		{E9C93D7C-5BC1-4784-83C3-2F658FCC4969}.Release|x86.Build.0 = Release|Any CPU
+		{B641B4E9-8E4A-4809-9D2C-7960CB14B573}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B641B4E9-8E4A-4809-9D2C-7960CB14B573}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B641B4E9-8E4A-4809-9D2C-7960CB14B573}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B641B4E9-8E4A-4809-9D2C-7960CB14B573}.Debug|x86.Build.0 = Debug|Any CPU
+		{B641B4E9-8E4A-4809-9D2C-7960CB14B573}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B641B4E9-8E4A-4809-9D2C-7960CB14B573}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B641B4E9-8E4A-4809-9D2C-7960CB14B573}.Release|x86.ActiveCfg = Release|Any CPU
+		{B641B4E9-8E4A-4809-9D2C-7960CB14B573}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
